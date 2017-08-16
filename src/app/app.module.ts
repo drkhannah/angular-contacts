@@ -3,17 +3,20 @@ import { NgModule } from '@angular/core';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import { AppRoutingModule } from './app-routing/app-routing.module'
+
 import { AppComponent } from './app.component';
-import { StudentListComponentComponent } from './student-list-component/student-list-component.component';
+import { StudentListComponent } from './student-list-component/student-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentListComponentComponent
+    StudentListComponent
   ],
   imports: [
     BrowserModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
