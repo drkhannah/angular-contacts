@@ -9,7 +9,7 @@ import { Student } from '../models/student';
 })
 export class StudentDetailComponent {
   //Properties
-  @Input() student: Student
+  @Input() student: Student;
 
   constructor() { }
 

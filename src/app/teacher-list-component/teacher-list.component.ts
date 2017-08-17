@@ -23,6 +23,10 @@ export class TeacherListComponent implements OnInit {
   }
 
   //Methods
+  onSelect(teacher:Teacher): void {
+    this.selectedTeacher = teacher;
+  }
+
   deleteTeacher(teacher:Teacher): void {
     console.log("Delete Teacher")
   }
