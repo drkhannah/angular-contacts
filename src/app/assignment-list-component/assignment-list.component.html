@@ -1,0 +1,8 @@
+<h2>Assignments:</h2>
+<ul class="list-group">
+  <li class="list-group-item justify-content-between" *ngFor="let assignment of assignments">
+    <button class="btn btn-danger" (click)="deleteAssignment(assignment); $event.stopPropagation()">X</button>
+    <span> {{assignment.name}}</span>
+    <span> {{assignment.description}}</span>
+  </li>
+</ul>

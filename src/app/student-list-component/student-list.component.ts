@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../student.service'
 
 import { Student } from '../models/student';
-import { STUDENTS } from './mock-students';
 
 @Component({
   selector: 'student-list',

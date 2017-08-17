@@ -1,0 +1,8 @@
+<h2>Teachers:</h2>
+<ul class="list-group">
+  <li class="list-group-item justify-content-between" *ngFor="let teacher of teachers">
+    <button class="btn btn-danger" (click)="deleteTeacher(teacher); $event.stopPropagation()">X</button>
+    <span> {{teacher.first_name}} {{teacher.last_name}}</span>
+    <span class="badge badge-default badge-pill">{{teacher.id}}</span>
+  </li>
+</ul>
