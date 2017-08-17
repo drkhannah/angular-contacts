@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { StudentService } from '../student.service'
+
 import { Student } from '../models/student';
 import { STUDENTS } from './mock-students';
 
@@ -12,11 +14,12 @@ export class StudentListComponent implements OnInit {
   //Properties
   students: Student[]
 
-  constructor() { }
+  constructor(private studentService: StudentService) { }
 
   //Lifecycle Hooks
   ngOnInit() {
-      this.students = STUDENTS;
+      this.studentService.getStudents()
+      .then(students => this.students = students);
   }
 
   //Methods
