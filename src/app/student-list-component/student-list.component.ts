@@ -12,7 +12,8 @@ import { STUDENTS } from './mock-students';
 })
 export class StudentListComponent implements OnInit {
   //Properties
-  students: Student[]
+  students: Student[];
+  selectedStudent: Student;
 
   constructor(private studentService: StudentService) { }
 
@@ -23,7 +24,11 @@ export class StudentListComponent implements OnInit {
   }
 
   //Methods
-  deleteStudent(student: Student): void {
+  onSelect(student:Student): void {
+    this.selectedStudent = student;
+  }
+
+  deleteStudent(student:Student): void {
     console.log("Delete Student")
   }
 }

@@ -1,8 +1,15 @@
-<h2>Students</h2>
-<ul class="list-group">
-  <li class="list-group-item justify-content-between" *ngFor="let student of students">
-    <button class="btn btn-danger" (click)="deleteStudent(student); $event.stopPropagation()">X</button>
-    <span> {{student.first_name}} {{student.last_name}}</span>
-    <span class="badge badge-default badge-pill">{{student.id}}</span>
-  </li>
-</ul>
+<div class="row">
+  <div class="col">
+    <h2>Students</h2>
+    <ul class="list-group">
+      <li class="list-group-item justify-content-between" *ngFor="let student of students" (click)="onSelect(student)" [class.active]="student === selectedStudent">
+        <button class="btn btn-danger" (click)="deleteStudent(student); $event.stopPropagation()">X</button>
+        <span> {{student.first_name}} {{student.last_name}}</span>
+        <span class="badge badge-default badge-pill">{{student.id}}</span>
+      </li>
+    </ul>
+  </div>
+  <div class="col">
+    <student-detail [student]="selectedStudent"></student-detail>
+  </div>
+</div>
