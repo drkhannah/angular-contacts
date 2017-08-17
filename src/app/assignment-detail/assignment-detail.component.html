@@ -1,0 +1,17 @@
+<div *ngIf="assignment">
+  <div class="jumbotron">
+    <h6>{{assignment.name}}</h6>
+    <h6>{{assignment.description}}</h6>
+  </div>
+  <form novalidate>
+    <div class="form-group">
+      <label>Name: </label>
+      <input class="form-control" type="text" [(ngModel)]="assignment.name" placeholder="Enter Assignment Name" name="name">
+    </div>
+    <div class="form-group">
+      <label>Description: </label>
+      <input class="form-control" type="text" [(ngModel)]="assignment.description" placeholder="Enter Assignment Name" name="description">
+    </div>
+  </form>
+  <button type="button" class="btn btn-success" (click)="saveAssignment()">Save</button>
+</div>

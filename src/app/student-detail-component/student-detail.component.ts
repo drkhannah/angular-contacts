@@ -1,4 +1,4 @@
-import { Component, OnChanges, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Student } from '../models/student';
 
@@ -7,16 +7,11 @@ import { Student } from '../models/student';
   templateUrl: './student-detail.component.html',
   styleUrls: ['./student-detail.component.css']
 })
-export class StudentDetailComponent implements OnChanges {
+export class StudentDetailComponent {
   //Properties
   @Input() student: Student
 
   constructor() { }
-
-  //LifeCycle Hook Methods
-  ngOnChanges(): void {
-
-  }
 
   //Methods
   saveStudent():void {

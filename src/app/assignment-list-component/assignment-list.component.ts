@@ -23,6 +23,10 @@ export class AssignmentListComponent implements OnInit {
   }
 
   //Methods
+  onSelect(assignment:Assignment): void {
+    this.selectedAssignment = assignment;
+  }
+
   deleteAssignment(assignment:Assignment): void {
     console.log("Delete assignments")
   }
