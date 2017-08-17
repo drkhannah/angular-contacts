@@ -20,7 +20,15 @@ export class AssignmentService {
                .toPromise()
                .then(response => response.json() as Assignment[])
                .catch(this.handleError);
-    }
+  }
+
+  updateAssignment(assignment:Assignment): Promise<Assignment> {
+    return this.http
+      .put(this.singleAssignmentUrl, JSON.stringify(assignment), {headers: this.headers})
+      .toPromise()
+      .then(assignment => assignment)
+      .catch(this.handleError);
+  }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);

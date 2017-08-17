@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { AssignmentService } from '../assignment.service';
+
 import { Assignment } from '../models/assignment';
 
 @Component({
@@ -11,10 +13,10 @@ export class AssignmentDetailComponent {
   //Properties
   @Input() assignment: Assignment
 
-  constructor() { }
+  constructor(private assignmentService:AssignmentService) { }
 
   //Methods
   saveAssignment():void {
-
+    this.assignmentService.updateAssignment(this.assignment).then();
   }
 }
