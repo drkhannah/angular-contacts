@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 
+import { StudentService } from '../student.service';
+
 import { Student } from '../models/student';
 
 @Component({
@@ -11,11 +13,13 @@ export class StudentDetailComponent {
   //Properties
   @Input() student: Student;
 
-  constructor() { }
+  constructor(private studentService:StudentService) { }
 
   //Methods
   saveStudent():void {
-
+    this.studentService.updateStudent(this.student).then(
+      student =>
+      console.log(`${student.first_name} was updated`));
   }
 
 }

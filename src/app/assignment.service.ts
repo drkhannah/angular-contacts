@@ -26,7 +26,7 @@ export class AssignmentService {
     return this.http
       .put(this.singleAssignmentUrl, JSON.stringify(assignment), {headers: this.headers})
       .toPromise()
-      .then(res => null)
+      .then(response => response.json() as Assignment)
       .catch(this.handleError);
   }
 

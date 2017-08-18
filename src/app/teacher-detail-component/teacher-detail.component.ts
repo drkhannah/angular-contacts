@@ -17,6 +17,6 @@ export class TeacherDetailComponent {
 
   //Methods
   saveTeacher():void {
-    this.teacherService.updateTeacher(this.teacher).then(res => console.log(`${this.teacher.first_name} was updated`));
+    this.teacherService.updateTeacher(this.teacher).then(teacher => console.log(`${teacher.first_name} was updated`));
   }
 }

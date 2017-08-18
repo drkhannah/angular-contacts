@@ -26,7 +26,7 @@ export class TeacherService {
     return this.http
       .put(this.singleTeacherUrl, JSON.stringify(teacher), {headers: this.headers})
       .toPromise()
-      .then(res => null)
+      .then(response => response.json() as Teacher)
       .catch(this.handleError);
   }
 
