@@ -28,4 +28,4 @@ Before running the tests make sure you are serving the app via `ng serve`.
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 get the jar here
-http://bitbucket.thesoftwareguild.com/users/krudy/repos/angular-gradebook-server/browse/gradebook-0.1.1.jar?at=2870e3665a39e2895037c1ffdf35330944748645&raw
+http://bitbucket.thesoftwareguild.com/users/krudy/repos/angular-gradebook-server/browse/gradebook-0.1.2.jar?at=4a0a0f335ef7baa192fd33b1a15b2429c61a2eda&raw
