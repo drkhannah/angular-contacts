@@ -22,6 +22,14 @@ export class TeacherService {
                .catch(this.handleError);
     }
 
+  updateTeacher(teacher:Teacher): Promise<Teacher> {
+    return this.http
+      .put(this.singleTeacherUrl, JSON.stringify(teacher), {headers: this.headers})
+      .toPromise()
+      .then(res => null)
+      .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);

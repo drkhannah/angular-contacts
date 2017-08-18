@@ -17,6 +17,6 @@ export class AssignmentDetailComponent {
 
   //Methods
   saveAssignment():void {
-    this.assignmentService.updateAssignment(this.assignment).then();
+    this.assignmentService.updateAssignment(this.assignment).then(res => console.log(`${this.assignment.name} was updated`));
   }
 }

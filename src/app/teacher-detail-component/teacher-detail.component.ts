@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 
+import { TeacherService } from '../teacher.service';
+
 import { Teacher } from '../models/teacher';
 
 @Component({
@@ -11,10 +13,10 @@ export class TeacherDetailComponent {
   //Properties
   @Input() teacher: Teacher;
 
-  constructor() { }
+  constructor(private teacherService:TeacherService) { }
 
   //Methods
-  saveStudent():void {
-
+  saveTeacher():void {
+    this.teacherService.updateTeacher(this.teacher).then(res => console.log(`${this.teacher.first_name} was updated`));
   }
 }
