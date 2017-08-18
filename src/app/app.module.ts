@@ -23,6 +23,8 @@ import { TeacherDetailComponent } from './teacher-detail-component/teacher-detai
 import { ClassListComponent } from './class-list-component/class-list.component';
 import { ClassDetailComponent } from './class-detail-component/class-detail.component';
 import { AddAssignmentComponent } from './add-assignment-component/add-assignment.component';
+import { AddClassComponent } from './add-class-component/add-class.component';
+import { AddTeacherComponent } from './add-teacher-component/add-teacher.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { AddAssignmentComponent } from './add-assignment-component/add-assignmen
     TeacherDetailComponent,
     ClassListComponent,
     ClassDetailComponent,
-    AddAssignmentComponent
+    AddAssignmentComponent,
+    AddClassComponent,
+    AddTeacherComponent
   ],
   imports: [
     BrowserModule,

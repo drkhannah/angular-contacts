@@ -28,6 +28,10 @@ export class TeacherListComponent implements OnInit {
   }
 
   deleteTeacher(teacher:Teacher): void {
-    console.log("Delete Teacher")
+    this.teacherService
+        .deleteTeacher(teacher.id)
+        .then(() => {
+          this.teachers = this.teachers.filter(t => t !== teacher);
+        });
   }
 }

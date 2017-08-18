@@ -30,6 +30,22 @@ export class ClassService {
       .catch(this.handleError);
   }
 
+  deleteClass(classID: number): Promise<Class> {
+    const url = `${this.singleClassUrl}/${classID}`;
+    return this.http.delete(url, {headers: this.headers})
+      .toPromise()
+      .then(response => response.json() as Class)
+      .catch(this.handleError);
+  }
+
+  addClass(c: Class): Promise<Class> {
+    return this.http
+      .post(this.singleClassUrl, JSON.stringify(c), {headers: this.headers})
+      .toPromise()
+      .then(response => response.json() as Class)
+      .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);

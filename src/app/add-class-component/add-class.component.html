@@ -1,0 +1,18 @@
+<h2>Add A New Class</h2>
+<form novalidate [formGroup]="class" (ngSubmit)="addClass(class)">
+    <div class="form-group">
+      <label>Class Name: </label>
+      <input class="form-control" type="text" placeholder="Enter Class's  Name" formControlName="name">
+      <div class="text-danger" *ngIf="class.get('name').hasError('required') && class.get('name').touched">
+        This Field is Required!
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Description: </label>
+      <input class="form-control" type="text" placeholder="Enter Class's  Description" formControlName="description">
+      <div class="text-danger" *ngIf="class.get('description').hasError('required') && class.get('description').touched">
+        This Field is Required!
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="class.invalid">Add Class</button>
+</form>

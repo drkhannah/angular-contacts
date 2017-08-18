@@ -30,6 +30,22 @@ export class TeacherService {
       .catch(this.handleError);
   }
 
+  deleteTeacher(teacherID: number): Promise<Teacher> {
+    const url = `${this.singleTeacherUrl}/${teacherID}`;
+    return this.http.delete(url, {headers: this.headers})
+      .toPromise()
+      .then(response => response.json() as Teacher)
+      .catch(this.handleError);
+  }
+
+  addTeacher(teacher: Teacher): Promise<Teacher> {
+    return this.http
+      .post(this.singleTeacherUrl, JSON.stringify(teacher), {headers: this.headers})
+      .toPromise()
+      .then(response => response.json() as Teacher)
+      .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
