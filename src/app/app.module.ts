@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module'
 import { StudentService } from './student.service'
 import { TeacherService } from './teacher.service'
 import { AssignmentService } from './assignment.service'
+import { ClassService } from './class.service'
 
 import { AppComponent } from './app.component';
 import { StudentListComponent } from './student-list-component/student-list.component';
@@ -19,6 +20,8 @@ import { TeacherListComponent } from './teacher-list-component/teacher-list.comp
 import { AssignmentListComponent } from './assignment-list-component/assignment-list.component';
 import { AssignmentDetailComponent } from './assignment-detail-component/assignment-detail.component';
 import { TeacherDetailComponent } from './teacher-detail-component/teacher-detail.component';
+import { ClassListComponent } from './class-list-component/class-list.component';
+import { ClassDetailComponent } from './class-detail-component/class-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { TeacherDetailComponent } from './teacher-detail-component/teacher-detai
     TeacherListComponent,
     AssignmentListComponent,
     AssignmentDetailComponent,
-    TeacherDetailComponent
+    TeacherDetailComponent,
+    ClassListComponent,
+    ClassDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,7 @@ import { TeacherDetailComponent } from './teacher-detail-component/teacher-detai
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [StudentService, TeacherService, AssignmentService],
+  providers: [StudentService, TeacherService, AssignmentService, ClassService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

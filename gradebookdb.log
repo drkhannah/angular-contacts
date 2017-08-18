@@ -1,3 +1,10 @@
 /*C21*/SET SCHEMA PUBLIC
 alter table student_grades drop constraint UK_3vo68ol3kaecejj24sjk1dwmx
 alter table student_grades add constraint UK_3vo68ol3kaecejj24sjk1dwmx unique (grades_id)
+/*C22*/SET SCHEMA PUBLIC
+DELETE FROM CLASS WHERE ID=2
+INSERT INTO CLASS VALUES(2,'Intermediate English Class','English 202',2)
+COMMIT
+DELETE FROM CLASS WHERE ID=2
+INSERT INTO CLASS VALUES(2,'Intermediate English Class','English 201',2)
+COMMIT

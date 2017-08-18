@@ -30,6 +30,14 @@ export class AssignmentService {
       .catch(this.handleError);
   }
 
+  deleteAssignment(assignmentID: number): Promise<Assignment> {
+    const url = `${this.singleAssignmentUrl}/${assignmentID}`;
+    return this.http.delete(url, {headers: this.headers})
+      .toPromise()
+      .then(response => response.json() as Assignment)
+      .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
