@@ -1,0 +1,18 @@
+<h2>Add A New Assignment</h2>
+<form novalidate [formGroup]="assignment" (ngSubmit)="addAssignment(assignment)">
+    <div class="form-group">
+      <label>Assignment Name: </label>
+      <input class="form-control" type="text" placeholder="Enter Assignment's  Name" formControlName="name">
+      <div class="text-danger" *ngIf="assignment.get('name').hasError('required') && assignment.get('name').touched">
+        This Field is Required!
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Description: </label>
+      <input class="form-control" type="text" placeholder="Enter Assignment's  Description" formControlName="description">
+      <div class="text-danger" *ngIf="assignment.get('description').hasError('required') && assignment.get('description').touched">
+        This Field is Required!
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="assignment.invalid">Add Assignment</button>
+</form>

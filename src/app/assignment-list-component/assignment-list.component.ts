@@ -30,8 +30,8 @@ export class AssignmentListComponent implements OnInit {
   deleteAssignment(assignment:Assignment): void {
     this.assignmentService
         .deleteAssignment(assignment.id)
-        .then(assignment => {
-          this.assignments = this.assignments.filter(assignment => assignment !== assignment);
+        .then(() => {
+          this.assignments = this.assignments.filter(a => a !== assignment);
         });
   }
 }

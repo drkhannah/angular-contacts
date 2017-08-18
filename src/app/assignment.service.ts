@@ -38,6 +38,14 @@ export class AssignmentService {
       .catch(this.handleError);
   }
 
+  addAssignment(assignemnt: Assignment): Promise<Assignment> {
+    return this.http
+      .post(this.singleAssignmentUrl, JSON.stringify(assignemnt), {headers: this.headers})
+      .toPromise()
+      .then(response => response.json() as Assignment)
+      .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
