@@ -28,6 +28,11 @@ export class StudentListComponent implements OnInit {
   }
 
   deleteStudent(student:Student): void {
-    console.log("Delete Student")
+      this.studentService
+          .deleteStudent(student.id)
+          .then(() => {
+            this.students = this.students.filter(s => s !== student);
+            this.selectedStudent = null;
+          });
   }
 }

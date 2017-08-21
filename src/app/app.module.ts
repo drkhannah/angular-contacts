@@ -12,6 +12,8 @@ import { StudentService } from './student.service'
 import { TeacherService } from './teacher.service'
 import { AssignmentService } from './assignment.service'
 import { ClassService } from './class.service'
+import { GradeService } from './grade.service'
+
 
 import { AppComponent } from './app.component';
 import { StudentListComponent } from './student-list-component/student-list.component';
@@ -49,7 +51,7 @@ import { AddTeacherComponent } from './add-teacher-component/add-teacher.compone
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [StudentService, TeacherService, AssignmentService, ClassService],
+  providers: [StudentService, TeacherService, AssignmentService, ClassService, GradeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
