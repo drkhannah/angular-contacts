@@ -1,0 +1,18 @@
+<h2>Add A New Student</h2>
+<form novalidate [formGroup]="student" (ngSubmit)="addStudent(student)">
+    <div class="form-group">
+      <label>First Name: </label>
+      <input class="form-control" type="text" placeholder="Enter Students's First Name" formControlName="first_name">
+      <div class="text-danger" *ngIf="student.get('first_name').hasError('required') && student.get('first_name').touched">
+        This Field is Required!
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Last Name: </label>
+      <input class="form-control" type="text" placeholder="Enter Student's Last Name" formControlName="last_name">
+      <div class="text-danger" *ngIf="student.get('last_name').hasError('required') && student.get('last_name').touched">
+        This Field is Required!
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="student.invalid">Add Student</button>
+</form>

@@ -8,6 +8,7 @@ import { ClassListComponent } from '../class-list-component/class-list.component
 import { AddAssignmentComponent } from '../add-assignment-component/add-assignment.component';
 import { AddClassComponent } from '../add-class-component/add-class.component';
 import { AddTeacherComponent } from '../add-teacher-component/add-teacher.component';
+import { AddStudentComponent } from '../add-student-component/add-student.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'student-list', pathMatch: 'full' },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'class-list', component: ClassListComponent },
   { path: 'add-assignment', component: AddAssignmentComponent },
   { path: 'add-class', component: AddClassComponent },
-  { path: 'add-teacher', component: AddTeacherComponent }
+  { path: 'add-teacher', component: AddTeacherComponent },
+  { path: 'add-student', component: AddStudentComponent }
 ];
 
 @NgModule({
