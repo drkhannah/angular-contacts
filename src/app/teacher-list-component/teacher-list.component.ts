@@ -32,6 +32,7 @@ export class TeacherListComponent implements OnInit {
         .deleteTeacher(teacher.id)
         .then(() => {
           this.teachers = this.teachers.filter(t => t !== teacher);
+          this.selectedTeacher = null;
         });
   }
 }

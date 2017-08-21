@@ -32,6 +32,7 @@ export class AssignmentListComponent implements OnInit {
         .deleteAssignment(assignment.id)
         .then(() => {
           this.assignments = this.assignments.filter(a => a !== assignment);
+          this.selectedAssignment = null;
         });
   }
 }

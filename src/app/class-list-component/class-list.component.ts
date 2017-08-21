@@ -32,6 +32,7 @@ export class ClassListComponent implements OnInit {
         .deleteClass(classToDelete.id)
         .then(() => {
           this.classes = this.classes.filter(c => c !== classToDelete);
+          this.selectedClass = null;
         });
   }
 }
