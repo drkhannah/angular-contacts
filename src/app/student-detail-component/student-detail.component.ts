@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 
 import { StudentService } from '../student.service';
 import { GradeService } from '../grade.service';
@@ -11,13 +11,20 @@ import { Grade } from '../models/grade';
   templateUrl: './student-detail.component.html',
   styleUrls: ['./student-detail.component.css']
 })
-export class StudentDetailComponent {
+export class StudentDetailComponent implements OnChanges {
   //Properties
   @Input() student: Student;
   grades: Grade[];
 
   constructor(private studentService:StudentService,
               private gradeService:GradeService,) { }
+
+  //LifeCycle Hookds
+  ngOnChanges(): void {
+    if(this.student){
+      this.grades = this.student.grades;
+    }
+  }
 
   //Methods
   saveStudent():void {
@@ -28,7 +35,7 @@ export class StudentDetailComponent {
 
   deleteGrade(grade:Grade): void {
     this.gradeService
-        .deleteGrade(grade.id)
+        .deleteGrade(this.student.id, grade.assignment.id)
         .then(() => {
           this.grades = this.grades.filter(g => g !== grade);
         });

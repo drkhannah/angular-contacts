@@ -11,14 +11,15 @@
       <label>Last Name: </label>
       <input class="form-control" type="text" [(ngModel)]="student.last_name" placeholder="Enter Student's First Name" name="last_name">
     </div>
-    <h2>Grades:</h2>
-    <ul class="list-group">
-      <li class="list-group-item justify-content-between" *ngFor="let grade of student.grades">
-        <button class="btn btn-danger" (click)="deleteGrade(grade); $event.stopPropagation()">X</button>
-        <span>{{grade.class.name}} : {{grade.assignment.name}}</span>
-        <span><strong>{{grade.grade}}pts</strong></span>
-      </li>
-    </ul>
+    <button type="button" class="btn btn-success" (click)="saveStudent()">Save Student Info</button>
   </form>
-  <button type="button" class="btn btn-success" (click)="saveStudent()">Save</button>
+  <h2>Grades:</h2>
+  <ul class="list-group">
+    <li class="list-group-item justify-content-between" *ngFor="let grade of grades">
+      <button class="btn btn-danger" (click)="deleteGrade(grade); $event.stopPropagation()">X</button>
+      <span>{{grade.class.name}} : {{grade.assignment.name}}</span>
+      <span><strong>{{grade.grade}}pts</strong></span>
+    </li>
+  </ul>
+  <button type="button" class="btn btn-success" [routerLink]="['/add-grade', student.id, student.first_name]">Add Grade</button>
 </div>

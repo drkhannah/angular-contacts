@@ -1,0 +1,30 @@
+<h2>Add A New Grade For: {{studentName}}</h2>
+<form novalidate [formGroup]="grade" (ngSubmit)="addGrade(grade)">
+    <div class="form-group">
+      <label>Class: </label>
+      <select formControlName="class">
+        <option *ngFor="let class of classes" [value]="class.name">{{class.name}}</option>
+      </select>
+      <div class="text-danger" *ngIf="grade.get('class').hasError('required') && grade.get('class').touched">
+        This Field is Required!
+      </div>
+      <label>Assignment: </label>
+      <select formControlName="assignment">
+        <option *ngFor="let assignment of assignments" [value]="assignment.name">{{assignment.name}}</option>
+      </select>
+      <div class="text-danger" *ngIf="grade.get('assignment').hasError('required') && grade.get('assignment').touched">
+        This Field is Required!
+      </div>
+      <label>Grade: </label>
+      <input class="form-control" type="number" placeholder="Enter Grade" formControlName="grade">
+      <div class="text-danger" *ngIf="grade.get('grade').hasError('required') && grade.get('grade').touched">
+        This Field is Required!
+      </div>
+      <label>Notes: </label>
+      <input class="form-control" type="text" placeholder="Enter Notes" formControlName="notes">
+      <div class="text-danger" *ngIf="grade.get('notes').hasError('required') && grade.get('notes').touched">
+        This Field is Required!
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="grade.invalid">Add Grade</button>
+</form>

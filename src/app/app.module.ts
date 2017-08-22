@@ -28,6 +28,7 @@ import { AddAssignmentComponent } from './add-assignment-component/add-assignmen
 import { AddClassComponent } from './add-class-component/add-class.component';
 import { AddTeacherComponent } from './add-teacher-component/add-teacher.component';
 import { AddStudentComponent } from './add-student-component/add-student.component';
+import { AddGradeComponent } from './add-grade-component/add-grade.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AddStudentComponent } from './add-student-component/add-student.compone
     AddAssignmentComponent,
     AddClassComponent,
     AddTeacherComponent,
-    AddStudentComponent
+    AddStudentComponent,
+    AddGradeComponent
   ],
   imports: [
     BrowserModule,
