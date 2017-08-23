@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+select.form-control.add-class-select {
+  width: auto;
+  display: inline;
+}

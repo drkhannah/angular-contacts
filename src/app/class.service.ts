@@ -46,6 +46,25 @@ export class ClassService {
       .catch(this.handleError);
   }
 
+  addStudentToClass(classID: number, studentID: number): Promise<Class[]> {
+    const url = `${this.singleClassUrl}/${classID}/student/${studentID}`;
+    return this.http
+      .post(url, null, {headers: this.headers})
+      .toPromise()
+      .then(response =>
+        response.json().classes as Class[])
+      .catch(this.handleError);
+  }
+
+  removeStudentFromClass(classID: number, studentID: number): Promise<Class> {
+    const url = `${this.singleClassUrl}/${classID}/student/${studentID}`;
+    return this.http
+      .delete(url, {headers: this.headers})
+      .toPromise()
+      .then(response => response.json() as Class)
+      .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);

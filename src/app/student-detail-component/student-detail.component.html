@@ -13,9 +13,21 @@
     </div>
     <button type="button" class="btn btn-success" (click)="saveStudent()">Save Student Info</button>
   </form>
+  <h2>Classes:</h2>
+  <ul class="list-group">
+    <li class="list-group-item justify-content-between" *ngFor="let class of studentClasses">
+      <button class="btn btn-danger" (click)="deleteClass(class); $event.stopPropagation()">X</button>
+      <span>Class: {{class.name}}</span>
+      <span>Teacher: {{class.teacher.first_name}} {{class.teacher.last_name}}</span>
+    </li>
+  </ul>
+  <button type="button" class="btn btn-success" (click)="addClass()">Add Class</button>
+  <select class="form-control add-class-select" [(ngModel)]="classToAdd" name="class">
+    <option *ngFor="let class of allClasses" [ngValue]="class">{{class.name}} with {{class.teacher.first_name}} {{class.teacher.last_name}}</option>
+  </select>
   <h2>Grades:</h2>
   <ul class="list-group">
-    <li class="list-group-item justify-content-between" *ngFor="let grade of grades">
+    <li class="list-group-item justify-content-between" *ngFor="let grade of studentGrades">
       <button class="btn btn-danger" (click)="deleteGrade(grade); $event.stopPropagation()">X</button>
       <span>{{grade.class.name}} : {{grade.assignment.name}}</span>
       <span><strong>{{grade.grade}}pts</strong></span>

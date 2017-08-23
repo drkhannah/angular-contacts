@@ -2,15 +2,15 @@
 <form novalidate [formGroup]="grade" (ngSubmit)="addGrade(grade)">
     <div class="form-group">
       <label>Class: </label>
-      <select formControlName="class">
-        <option *ngFor="let class of classes" [value]="class.name">{{class.name}}</option>
+      <select class="form-control" formControlName="class">
+        <option *ngFor="let class of classes" [value]="class.id">{{class.name}}</option>
       </select>
       <div class="text-danger" *ngIf="grade.get('class').hasError('required') && grade.get('class').touched">
         This Field is Required!
       </div>
       <label>Assignment: </label>
-      <select formControlName="assignment">
-        <option *ngFor="let assignment of assignments" [value]="assignment.name">{{assignment.name}}</option>
+      <select class="form-control" formControlName="assignment">
+        <option *ngFor="let assignment of assignments" [value]="assignment.id">{{assignment.name}}</option>
       </select>
       <div class="text-danger" *ngIf="grade.get('assignment').hasError('required') && grade.get('assignment').touched">
         This Field is Required!

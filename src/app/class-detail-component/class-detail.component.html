@@ -1,7 +1,8 @@
 <div *ngIf="class">
   <div class="jumbotron">
-    <h6>{{class.name}}</h6>
-    <h6>{{class.description}}</h6>
+    <h6>Name: {{class.name}}</h6>
+    <h6>Description {{class.description}}</h6>
+    <h6>Teacher: {{class.teacher.first_name}} {{class.teacher.last_name}}</h6>
   </div>
   <form novalidate>
     <div class="form-group">
@@ -12,6 +13,10 @@
       <label>Description: </label>
       <input class="form-control" type="text" [(ngModel)]="class.description" placeholder="Enter Class Name" name="description">
     </div>
+    <label>Teacher: </label>
+    <select class="form-control" [(ngModel)]="class.teacher" name="teacher">
+      <option *ngFor="let teacher of teachers" [ngValue]="teacher">{{teacher.first_name}} {{teacher.last_name}}</option>
+    </select>
   </form>
   <button type="button" class="btn btn-success" (click)="saveClass()">Save</button>
 </div>
