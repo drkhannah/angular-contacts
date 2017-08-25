@@ -4,7 +4,7 @@
     <h6>Description {{class.description}}</h6>
     <h6>Teacher: {{class.teacher.first_name}} {{class.teacher.last_name}}</h6>
   </div>
-  <form novalidate>
+  <form novalidate (ngSubmit)="saveClass()">
     <div class="form-group">
       <label>Name: </label>
       <input class="form-control" type="text" [(ngModel)]="class.name" placeholder="Enter Class Name" name="name">
@@ -17,6 +17,14 @@
     <select class="form-control" [(ngModel)]="class.teacher" name="teacher">
       <option *ngFor="let teacher of teachers" [ngValue]="teacher">{{teacher.first_name}} {{teacher.last_name}}</option>
     </select>
+    <button type="submit" class="btn btn-success">Save</button>
   </form>
-  <button type="button" class="btn btn-success" (click)="saveClass()">Save</button>
+  <h2>Assignments</h2>
+  <ul class="list-group">
+    <li class="list-group-item justify-content-between" *ngFor="let assignment of assignments">
+      <button class="btn btn-danger" (click)="deleteAssignment(assignment); $event.stopPropagation()">X</button>
+      <span>{{assignment.name}}</span>
+    </li>
+  </ul>
+  <button type="button" class="btn btn-success" routerLink="/add-assignment">Add Assignment</button>
 </div>
