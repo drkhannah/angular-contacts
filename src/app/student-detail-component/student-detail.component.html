@@ -22,7 +22,7 @@
     </li>
   </ul>
   <button type="button" class="btn btn-success" (click)="addClass()">Add Class</button>
-  <select class="form-control add-class-select" [(ngModel)]="classToAdd" name="class">
+  <select class="form-control add-btn-select" [(ngModel)]="classToAdd" name="class">
     <option *ngFor="let class of allClasses" [ngValue]="class">{{class.name}} with {{class.teacher.first_name}} {{class.teacher.last_name}}</option>
   </select>
   <h2>Grades:</h2>

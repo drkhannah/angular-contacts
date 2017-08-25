@@ -3,6 +3,7 @@ import { Headers, Http } from '@angular/http';
 
 import { Class } from './models/class';
 import { Assignment } from './models/assignment';
+import { Student } from './models/student';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -70,6 +71,16 @@ export class ClassService {
       .post(this.singleClassUrl, JSON.stringify(c), {headers: this.headers})
       .toPromise()
       .then(response => response.json() as Class)
+      .catch(this.handleError);
+  }
+
+  //GET /api/class/{id}/students – Get all students for a class
+  getStudentsForClass(classID: number): Promise<Student[]> {
+    const url = `${this.singleClassUrl}/${classID}/students`;
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(response => response.json() as Student[])
       .catch(this.handleError);
   }
 

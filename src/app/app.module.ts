@@ -19,7 +19,6 @@ import { AppComponent } from './app.component';
 import { StudentListComponent } from './student-list-component/student-list.component';
 import { StudentDetailComponent } from './student-detail-component/student-detail.component';
 import { TeacherListComponent } from './teacher-list-component/teacher-list.component';
-import { AssignmentListComponent } from './assignment-list-component/assignment-list.component';
 import { AssignmentDetailComponent } from './assignment-detail-component/assignment-detail.component';
 import { TeacherDetailComponent } from './teacher-detail-component/teacher-detail.component';
 import { ClassListComponent } from './class-list-component/class-list.component';
@@ -36,7 +35,6 @@ import { AddGradeComponent } from './add-grade-component/add-grade.component';
     StudentListComponent,
     StudentDetailComponent,
     TeacherListComponent,
-    AssignmentListComponent,
     AssignmentDetailComponent,
     TeacherDetailComponent,
     ClassListComponent,

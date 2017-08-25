@@ -27,4 +27,15 @@
     </li>
   </ul>
   <button type="button" class="btn btn-success" routerLink="/add-assignment">Add Assignment</button>
+  <h2>Students</h2>
+  <ul class="list-group">
+    <li class="list-group-item justify-content-between" *ngFor="let student of studentsInClass">
+      <button class="btn btn-danger" (click)="unenrollStudent(student); $event.stopPropagation()">X</button>
+      <span>{{student.first_name}}  {{student.last_name}}</span>
+    </li>
+  </ul>
+  <button type="button" class="btn btn-success" (click)="enrollStudent()">Enroll Student</button>
+  <select class="form-control add-btn-select" [(ngModel)]="studentToEnroll" name="student">
+    <option *ngFor="let student of allStudents" [ngValue]="student">{{student.first_name}}  {{student.last_name}}</option>
+  </select>
 </div>
