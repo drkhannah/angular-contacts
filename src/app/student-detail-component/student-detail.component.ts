@@ -21,6 +21,7 @@ export class StudentDetailComponent implements OnInit, OnChanges {
   classToAdd: Class;
   studentClasses: Class[];
   studentGrades: Grade[];
+  fullClassGrades: number[] = [];
 
   constructor(
     private studentService:StudentService,
@@ -36,6 +37,14 @@ export class StudentDetailComponent implements OnInit, OnChanges {
     if(this.student){
       this.studentGrades = this.student.grades;
       this.studentClasses = this.student.classes;
+
+      //populate fullClassGrades array
+      this.fullClassGrades = [];
+      for (let c of this.studentClasses) {
+        this.gradeService.getStudentGradeForClass(this.student.id, c.id)
+          .then(points => {
+            this.fullClassGrades.push(points)})
+      }
     }
   }
 
@@ -54,18 +63,18 @@ export class StudentDetailComponent implements OnInit, OnChanges {
 
   deleteClass(classToDelete: Class):void {
     this.classService
-    .removeStudentFromClass(classToDelete.id, this.student.id)
-    .then(() => {
-      this.studentClasses = this.studentClasses.filter(c => c !== classToDelete);
-    });
+      .removeStudentFromClass(classToDelete.id, this.student.id)
+      .then(() => {
+        this.studentClasses = this.studentClasses.filter(c => c !== classToDelete);
+      });
   }
 
   deleteGrade(grade:Grade): void {
     this.gradeService
-        .deleteGrade(this.student.id, grade.assignment.id)
-        .then(() => {
-          this.studentGrades = this.studentGrades.filter(g => g !== grade);
-        });
+      .deleteGrade(this.student.id, grade.assignment.id)
+      .then(() => {
+        this.studentGrades = this.studentGrades.filter(g => g !== grade);
+      });
   }
 
 }

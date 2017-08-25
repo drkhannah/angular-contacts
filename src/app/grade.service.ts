@@ -15,12 +15,12 @@ export class GradeService {
 
   //Methods
   //GET /api/student/{id}/class/{class_id} -- Get Full Student Grade for Class
-  getStudentGradeForClass(studentID: number, classID: number): Promise<Grade> {
+  getStudentGradeForClass(studentID: number, classID: number): Promise<number> {
     const url = `${this.singleStudentUrl}/${studentID}/class/${classID}`;
     return this.http
       .get(url)
       .toPromise()
-      .then(response => response.json() as Grade)
+      .then(response => response.json().grade as number)
       .catch(this.handleError);
   }
 

@@ -15,10 +15,11 @@
   </form>
   <h2>Classes:</h2>
   <ul class="list-group">
-    <li class="list-group-item justify-content-between" *ngFor="let class of studentClasses">
+    <li class="list-group-item justify-content-between" *ngFor="let class of studentClasses; let i = index">
       <button class="btn btn-danger" (click)="deleteClass(class); $event.stopPropagation()">X</button>
       <span>Class: {{class.name}}</span>
       <span>Teacher: {{class.teacher.first_name}} {{class.teacher.last_name}}</span>
+      <span>Grade: {{fullClassGrades[i]}}</span>
     </li>
   </ul>
   <button type="button" class="btn btn-success" (click)="addClass()">Add Class</button>
