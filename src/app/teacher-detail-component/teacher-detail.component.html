@@ -12,5 +12,12 @@
       <input class="form-control" type="text" [(ngModel)]="teacher.last_name" placeholder="Enter Teacher's Last Name" name="last_name">
     </div>
   </form>
+  <h2>Classes</h2>
+  <ul class="list-group">
+    <li class="list-group-item justify-content-between" *ngFor="let class of teacherClasses">
+      <span> {{class.name}}</span>
+      <span class="badge badge-default badge-pill">{{class.id}}</span>
+    </li>
+  </ul>
   <button type="button" class="btn btn-success" (click)="saveTeacher()">Save</button>
 </div>

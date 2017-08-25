@@ -22,9 +22,10 @@ export class StudentDetailComponent implements OnInit, OnChanges {
   studentClasses: Class[];
   studentGrades: Grade[];
 
-  constructor(private studentService:StudentService,
-              private gradeService:GradeService,
-              private classService: ClassService) { }
+  constructor(
+    private studentService:StudentService,
+    private gradeService:GradeService,
+    private classService: ClassService) { }
 
   //LifeCycle Hooks
   ngOnInit(): void {

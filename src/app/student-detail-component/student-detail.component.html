@@ -29,7 +29,7 @@
   <ul class="list-group">
     <li class="list-group-item justify-content-between" *ngFor="let grade of studentGrades">
       <button class="btn btn-danger" (click)="deleteGrade(grade); $event.stopPropagation()">X</button>
-      <span>{{grade.class.name}} : {{grade.assignment.name}}</span>
+      <span>{{grade.assignment.class.name}} : {{grade.assignment.name}}</span>
       <span><strong>{{grade.grade}}pts</strong></span>
     </li>
   </ul>

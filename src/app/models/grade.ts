@@ -6,5 +6,4 @@ export class Grade {
   assignment: Assignment;
   grade: number;
   notes: string;
-  class: Class;
 }
