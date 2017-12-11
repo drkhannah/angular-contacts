@@ -1,6 +1,6 @@
-import { Class } from "./class"
+import { Class } from "./class";
 
-export class Assignment {
+export interface Assignment {
   id: number;
   name: string;
   description: string;

@@ -1,7 +1,7 @@
-import { Class } from "./class"
-import { Assignment } from "./assignment"
+import { Class } from "./class";
+import { Assignment } from "./assignment";
 
-export class Grade {
+export interface Grade {
   id: number;
   assignment: Assignment;
   grade: number;
